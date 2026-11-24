@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Embodied AI Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>具身智能作品集</title>
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 900px; margin: 40px auto; padding: 0 20px;
+           font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+           line-height: 1.7; color: #24292f; }
+    h1 { border-bottom: 2px solid #d0d7de; padding-bottom: 12px; }
+    h2 { margin-top: 36px; }
+    .card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px;
+            margin: 16px 0; background: #f6f8fa; }
+    .tag { display: inline-block; background: #ddf4ff; color: #0969da;
+           border-radius: 12px; padding: 2px 10px; font-size: 12px; margin-right: 6px; }
+    .metric { color: #cf222e; font-weight: 600; }
+    a { color: #0969da; }
+    code { background: #eff2f5; padding: 2px 5px; border-radius: 4px; }
+  </style>
 </head>
 <body>
-  <h1>Embodied AI Portfolio</h1>
-  <p>占位主页（待填充）</p>
+  <h1>具身智能作品集</h1>
+  <p>算法层具身智能项目：世界模型、策略学习与 MuJoCo 仿真验证。所有项目聚焦算法与任务层，不涉及底层机器人控制。</p>
+
+  <h2>项目</h2>
+
+  <div class="card">
+    <h3>具身世界模型实验室 · vla-world-model-lab</h3>
+    <p>
+      <span class="tag">PyTorch</span><span class="tag">Dreamer</span>
+      <span class="tag">RSSM</span><span class="tag">MuJoCo</span><span class="tag">世界模型</span>
+    </p>
+    <p>基于 Dreamer 范式的轻量化具身世界模型。从离线轨迹学习「图像 + 动作 → 隐状态 → 下一帧图像 / 奖励」的动力学，在隐空间训练想象策略，并用完整消融实验回答各设计选择的有效性。</p>
+    <ul>
+      <li>20 步开环想象测试集 SSIM <span class="metric">0.7511</span>、奖励 MAE <span class="metric">0.0242</span>，均超过自设门槛。</li>
+      <li>同口径动力学消融：RSSM 20 步 PSNR <span class="metric">23.71 dB</span> vs 纯前馈 MLP <span class="metric">17.61 dB</span>。</li>
+      <li>KL 与 free bits 消融：移除 KL 后从第 1 步崩塌；<code>free_bits</code> 调参带来 <span class="metric">+5.7 dB</span>。</li>
+      <li>想象策略探针回报 <span class="metric">-0.04 → +0.85</span>；同时如实记录真实环境 0% 成功率的 sim-to-real 瓶颈。</li>
+      <li>想象步长 / 奖励头 / 样本效率 / 50 场景泛化全套消融，附机器可读结果与图表。</li>
+    </ul>
+    <p><a href="https://github.com/wzh0310/vla-world-model-lab">查看代码与完整文档 →</a></p>
+  </div>
+
+  <div class="card">
+    <h3>MuJoCo 仿真工作台 · mujoco-studio-lab</h3>
+    <p><span class="tag">MuJoCo</span><span class="tag">EGL</span><span class="tag">Gymnasium</span></p>
+    <p>Panda 推立方体任务、离屏渲染、奖励设计与轨迹导出，为世界模型与策略库提供统一数据来源。</p>
+    <p><a href="https://github.com/wzh0310/mujoco-studio-lab">查看代码 →</a></p>
+  </div>
+
+  <div class="card">
+    <h3>具身策略算法库 · embodied-policy-zoo</h3>
+    <p><span class="tag">BC</span><span class="tag">ACT</span><span class="tag">PPO</span><span class="tag">IQL</span><span class="tag">DT</span></p>
+    <p>统一实现与评估的视觉 / 状态策略库，提供世界模型样本效率对比与泛化基准。</p>
+    <p><a href="https://github.com/wzh0310/embodied-policy-zoo">查看代码 →</a></p>
+  </div>
+
+  <h2>其他</h2>
+  <ul>
+    <li><a href="blog/">技术博客</a></li>
+    <li><a href="cards/">面试速答卡</a></li>
+    <li><a href="resume/">简历</a></li>
+  </ul>
 </body>
 </html>
