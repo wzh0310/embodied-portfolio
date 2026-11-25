@@ -31,6 +31,7 @@
     <p>
       <span class="tag">PyTorch</span><span class="tag">Dreamer</span>
       <span class="tag">RSSM</span><span class="tag">MuJoCo</span><span class="tag">世界模型</span>
+      <span class="tag">OpenVLA</span><span class="tag">VLA</span><span class="tag">数据集</span>
     </p>
     <p>基于 Dreamer 范式的轻量化具身世界模型。从离线轨迹学习「图像 + 动作 → 隐状态 → 下一帧图像 / 奖励」的动力学，在隐空间训练想象策略，并用完整消融实验回答各设计选择的有效性。</p>
     <ul>
@@ -39,6 +40,8 @@
       <li>KL 与 free bits 消融：移除 KL 后从第 1 步崩塌；<code>free_bits</code> 调参带来 <span class="metric">+5.7 dB</span>。</li>
       <li>想象策略探针回报 <span class="metric">-0.04 → +0.85</span>；同时如实记录真实环境 0% 成功率的 sim-to-real 瓶颈。</li>
       <li>想象步长 / 奖励头 / 样本效率 / 50 场景泛化全套消融，附机器可读结果与图表。</li>
+      <li>接入 OpenVLA 7B 打通单帧 / 单步 / 回合级闭环，bf16 单步 <span class="metric">0.305 s</span>（3.65 Hz），如实记录零样本 0/3 成功率与域差距排查。</li>
+      <li>构建自定义 VLA 数据集：<span class="metric">25 条轨迹 / 928 帧</span>，5 类共 20 条指令模板全覆盖，起点 ±0.05 m 随机化、带时间戳与质量筛选。</li>
     </ul>
     <p><a href="https://github.com/wzh0310/vla-world-model-lab">查看代码与完整文档 →</a></p>
   </div>

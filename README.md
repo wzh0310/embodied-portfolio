@@ -20,8 +20,10 @@
   - 同口径动力学消融中 RSSM 20 步 PSNR **23.71 dB**，纯前馈 MLP 基线仅 **17.61 dB**；
   - KL 与 free bits 消融证明：移除 KL 后预测从第 1 步即崩塌，`free_bits` 调参带来 **+5.7 dB** 提升；
   - 完整实现想象策略训练（λ-return + PPO + 熵正则），探针回报 **-0.04 → +0.85**，并如实记录真实环境 0% 成功率的 sim-to-real 瓶颈；
-  - 想象步长、奖励头、样本效率与 50 场景泛化测试全套消融，结论有机器可读数据与图表支撑。
-- **技术栈**：PyTorch、MuJoCo、Gymnasium、RSSM、DreamerV2 思想、Stable-Baselines3、HDF5、Matplotlib。
+  - 想象步长、奖励头、样本效率与 50 场景泛化测试全套消融，结论有机器可读数据与图表支撑；
+  - 接入 OpenVLA 7B 完成视觉-语言-动作推理全链路：单帧推理、单步闭环、回合级闭环（bf16 单步 0.305 s / 3.65 Hz，int4 显存 4.55 GB），并如实记录零样本 0/3 成功率的域差距瓶颈与三项问题排查；
+  - 构建自定义 VLA 数据集：25 条专家轨迹 / 928 帧、5 类共 20 条英文指令模板全覆盖、起点 ±0.05 m 随机化、带时间戳与达标筛选，对接 LoRA 微调字段规范。
+- **技术栈**：PyTorch、MuJoCo、Gymnasium、RSSM、DreamerV2、OpenVLA、LoRA、LeRobot、HDF5、Matplotlib。
 - **详细文档**：项目 `README.md` 与 `docs/` 目录。
 
 ### 2. MuJoCo 仿真工作台（mujoco-studio-lab）
