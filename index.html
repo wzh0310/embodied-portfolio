@@ -42,6 +42,7 @@
       <li>想象步长 / 奖励头 / 样本效率 / 50 场景泛化全套消融，附机器可读结果与图表。</li>
       <li>接入 OpenVLA 7B 打通单帧 / 单步 / 回合级闭环，bf16 单步 <span class="metric">0.305 s</span>（3.65 Hz），如实记录零样本 0/3 成功率与域差距排查。</li>
       <li>构建自定义 VLA 数据集：<span class="metric">25 条轨迹 / 928 帧</span>，5 类共 20 条指令模板全覆盖，起点 ±0.05 m 随机化、带时间戳与质量筛选。</li>
+      <li>回合级语言指令标注与三元组配对：指令 / 图像序列 / 动作序列一一对应，附数据索引表与 task_index 映射，校验通过。</li>
     </ul>
     <p><a href="https://github.com/wzh0310/vla-world-model-lab">查看代码与完整文档 →</a></p>
   </div>
