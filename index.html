@@ -45,6 +45,7 @@
       <li>回合级语言指令标注与三元组配对：指令 / 图像序列 / 动作序列一一对应，附数据索引表与 task_index 映射，校验通过。</li>
       <li>数据预处理与标准化：图像对齐 OpenVLA 双视觉主干（DINOv2 + SigLIP 双视图），动作 min-max 归一化至 [-1,1] 并落盘复用，按类别分层划分 <span class="metric">20 训练 / 5 验证</span>，产出 PyTorch Dataset，28 项校验全通过。</li>
       <li>LeRobot v0.7.0 格式适配：转换为标准 Parquet，字段严格对齐官方规范，经 <span class="metric">LeRobotDataset</span> 官方接口加载验证，<span class="metric">42 项校验全通过</span>，可直接复用训练生态。</li>
+      <li>数据集质量优化与增强至 v1.0：逐帧质量抽查 + 图像/指令增强，训练集扩至 <span class="metric">2980 帧</span>，验证集作基线，附统计报告，19 项校验全通过。</li>
     </ul>
     <p><a href="https://github.com/wzh0310/vla-world-model-lab">查看代码与完整文档 →</a></p>
   </div>
