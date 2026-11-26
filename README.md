@@ -25,6 +25,7 @@
   - 构建自定义 VLA 数据集：25 条专家轨迹 / 928 帧、5 类共 20 条英文指令模板全覆盖、起点 ±0.05 m 随机化、带时间戳与达标筛选，对接 LoRA 微调字段规范；
   - 完成回合级语言指令标注与三元组配对：指令-图像序列-动作序列一一对应、帧内共享同一指令，产出数据索引表（JSON/CSV）与 task_index 映射，校验全部通过。
   - 完成数据预处理与标准化：按模型 processor 双视觉主干口径对齐图像（DINOv2 / SigLIP 双视图），动作 min-max 归一化到 [-1,1] 并落盘复用参数，按类别分层划分 20 训练 / 5 验证，产出 PyTorch Dataset + DataLoader 可直接加载的数据集，28 项校验全通过。
+  - 完成 LeRobot v0.7.0 格式适配：转换为标准 Parquet（字段严格对齐 episode_index/frame_index/timestamp/observation.images.main/observation.language_instruction/action），用官方 LeRobotDataset 接口加载验证，42 项校验全通过，可直接复用其训练生态。
 - **技术栈**：PyTorch、MuJoCo、Gymnasium、RSSM、DreamerV2、OpenVLA、LoRA、LeRobot、HDF5、Matplotlib。
 - **详细文档**：项目 `README.md` 与 `docs/` 目录。
 
