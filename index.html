@@ -46,6 +46,7 @@
       <li>数据预处理与标准化：图像对齐 OpenVLA 双视觉主干（DINOv2 + SigLIP 双视图），动作 min-max 归一化至 [-1,1] 并落盘复用，按类别分层划分 <span class="metric">20 训练 / 5 验证</span>，产出 PyTorch Dataset，28 项校验全通过。</li>
       <li>LeRobot v0.7.0 格式适配：转换为标准 Parquet，字段严格对齐官方规范，经 <span class="metric">LeRobotDataset</span> 官方接口加载验证，<span class="metric">42 项校验全通过</span>，可直接复用训练生态。</li>
       <li>数据集质量优化与增强至 v1.0：逐帧质量抽查 + 图像/指令增强，训练集扩至 <span class="metric">2980 帧</span>，验证集作基线，附统计报告，19 项校验全通过。</li>
+      <li>搭建基于 <span class="metric">peft</span> 的 OpenVLA LoRA 微调骨架：只挂 LLM 主干（可训练参数 <span class="metric">1.05%</span>），4D→7D 动作严格对齐并注册自采数据 unnorm_key，A6000 实测单步前向/反向/验证/保存全链路通过。</li>
     </ul>
     <p><a href="https://github.com/wzh0310/vla-world-model-lab">查看代码与完整文档 →</a></p>
   </div>
